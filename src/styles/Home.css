@@ -1,0 +1,84 @@
+/* src/pages/Home.css */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px;
+  color: white;
+  min-height: 74vh;
+  flex-wrap: wrap;
+  text-align: center;
+  background-image: url('../assets/images/background.jpg');  /* New background */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+  
+  .hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease;
+  }
+  
+  .hero-section p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    animation: fadeInUp 1s ease;
+  }
+  
+  .hero-section button {
+    padding: 10px 20px;
+    background-color: #ef7516;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    animation: fadeInUp 1.2s ease;
+  }
+  
+  .services-section {
+    padding: 60px 20px;
+    background: #f9f9f9;
+  }
+  
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .portfolio-section {
+    padding: 60px 20px;
+    background: #fff;
+  }
+  
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  /* Animations */
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

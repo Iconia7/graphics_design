@@ -1,0 +1,42 @@
+/* src/pages/TrackProgress.css */
+.track-progress {
+    padding: 60px 20px;
+    text-align: center;
+  }
+  
+  .track-progress h2 {
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+  }
+  
+  .track-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .track-form input {
+    width: 300px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+  
+  .track-form button {
+    padding: 10px 20px;
+    background-color: #ef7516;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .progress-result {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #070707;
+  }
+  

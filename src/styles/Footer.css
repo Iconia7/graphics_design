@@ -1,0 +1,63 @@
+.footer {
+  background: linear-gradient(120deg, #026206, #01b32c);
+  background-image: url('../assets/images/background.jpg');  /* New background */
+  background-size: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 20px 50px;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.social-links {
+  margin: 10px 0;
+}
+
+
+
+.contact-info p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-info svg {
+  margin-right: 8px;
+  font-size: 1.2rem;
+  color: #faf9f9;
+}
+
+.social-links a {
+  color: white;
+  margin: 0 15px;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.social-links a:hover {
+  transform: translateY(-5px);
+}
+
+/* For Small Screens */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .footer-links a,
+  .contact-info p {
+    font-size: 1rem;
+  }
+}

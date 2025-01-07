@@ -1,0 +1,33 @@
+/* src/pages/About.css */
+.about-page {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+  }
+  
+  .about-page h2 {
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    color: #1e3a46;
+  }
+  
+  .about-page p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+  }
+  
+  .about-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+  }
+  
+  .stat h3 {
+    font-size: 2rem;
+    color: #ef7516;
+  }
+  
+  .stat p {
+    font-size: 1rem;
+  }
+  

@@ -20,20 +20,59 @@ const RequestSection = () => {
 
   const generatePDF = (trackingId) => {
     const doc = new jsPDF();
+  
+    // Add logo
     const img = new Image();
     img.src = logo;
-    doc.addImage(img, 'PNG', 85, 15, 40, 20);
-
-    doc.setFontSize(24);
-    doc.text("Service Request Receipt", 70, 50);
+    doc.addImage(img, 'PNG', 10, 10, 30, 30); // Adjust logo size and position
+  
+    // Header
+    doc.setFontSize(18);
+    doc.setFont("Helvetica", "bold");
+    doc.text("Newton Designs", 50, 25); // Business name
     doc.setFontSize(12);
-    doc.text(`Tracking ID: ${trackingId}`, 20, 80);
-    doc.text(`Service: ${formData.service}`, 20, 90);
-    doc.text(`Details:`, 20, 100);
-    doc.text(`${formData.details}`, 20, 110, { maxWidth: 170 });
-    doc.text(`Contact: ${contactNumber}`, 20, 130);
+    doc.setFont("Helvetica", "normal");
+    doc.text("Service Request Receipt", 50, 35); // Subtitle
+    doc.line(10, 40, 200, 40); // Divider line
+  
+    // Receipt Details
+    doc.setFontSize(12);
+    doc.setFont("Helvetica", "bold");
+    doc.text("Receipt Details", 10, 50);
+    doc.setFont("Helvetica", "normal");
+  
+    // Add details in a bordered box
+    doc.setDrawColor(0);
+    doc.setLineWidth(0.5);
+    doc.rect(10, 55, 190, 60); // Outer box
+  
+    // Inside the box
+    doc.text(`Tracking ID: ${trackingId}`, 15, 65);
+    doc.text(`Service: ${formData.service}`, 15, 75);
+    doc.text("Details:", 15, 85);
+    doc.setFont("Helvetica", "italic");
+    doc.text(formData.details, 15, 95, { maxWidth: 180 });
+  
+    // Footer Section
+    doc.setFont("Helvetica", "bold");
+    doc.text("Contact Information:", 10, 125);
+    doc.setFont("Helvetica", "normal");
+    doc.text(`Our WhatsApp Number: ${contactNumber}`, 15, 135);
+  
+    // Footer Notes
+    let footerY = 145; // Starting Y-coordinate for the footer notes
+    doc.setFont("Helvetica", "normal");
+    doc.text("Thank you for choosing Newton Designs!", 10, footerY);
+    footerY += 7; // Increment Y-coordinate for the next line
+    doc.text("You can track the progress of your request on our website.", 10, footerY);
+    footerY += 7; // Increment Y-coordinate for the next line
+    doc.text("Copy the tracking ID and paste it into the Track Progress tab.", 10, footerY);
+  
+    // Save PDF
     doc.save(`Service_Request_Receipt.pdf`);
   };
+  
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();

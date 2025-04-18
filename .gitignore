@@ -25,3 +25,4 @@ src/firebase.js
 /firebase.json
 /.firebaserc
 /.firebase
+.env

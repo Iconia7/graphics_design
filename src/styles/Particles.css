@@ -1,0 +1,40 @@
+:root {
+    --primary-color: #4CAF50;    /* Green */
+    --secondary-color: #FF9800;  /* Orange */
+    --accent-color: #FFC107;     /* Amber */
+    --text-color: #2d3748;
+    --light-text: #f8f9fa;
+    --dark-bg: #1a202c;
+  }
+  
+  /* Updated gradient texts */
+  .gradient-text {
+    background: linear-gradient(120deg, var(--primary-color), var(--accent-color));
+    /* ... keep other text styles ... */
+  }
+  
+  .gradient-text-secondary {
+    background: linear-gradient(120deg, var(--secondary-color), #FF5722);
+  }
+  
+  /* Updated button gradients */
+  .btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  }
+  
+  /* Updated image overlays */
+  .gradient-overlay {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  }
+  
+  .glow {
+    background: radial-gradient(circle at 50% 50%, 
+      rgba(76, 175, 80, 0.3) 0%,  /* Green glow */
+      transparent 60%
+    );
+  }
+  
+  /* Updated particle connections */
+  .line_linked {
+    color: var(--secondary-color); /* Orange connections */
+  }

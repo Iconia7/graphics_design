@@ -1,47 +1,211 @@
+/* PortfolioSection.css */
+:root {
+  --primary-accent: #6e45e2;
+  --secondary-accent: #ff6b6b;
+  --dark-bg: #1a202c;
+  --light-text: #f8f9fa;
+}
+
 .portfolio-section {
-  padding: 50px;
-  background-color: #fff;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.section-title {
   text-align: center;
+  font-size: 3rem;
+  margin-bottom: 60px;
+  background: linear-gradient(90deg, var(--primary-accent), var(--secondary-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-.portfolio-section h2 {
-  margin-bottom: 30px;
-  font-size: 2.5rem;
-}
-
-.portfolio-gallery {
+.portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 20px;
-  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
   padding: 0 20px;
 }
 
-.portfolio-card {
+.portfolio-item {
+  position: relative;
+  border-radius: 15px;
   overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: translateY(50px);
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.portfolio-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+.portfolio-item.animate {
+  transform: translateY(0);
+  opacity: 1;
 }
 
-.portfolio-card img {
-  width: 400px;
+.card-inner {
+  position: relative;
   height: 400px;
-  object-fit: cover;
-  transition: transform 0.3s ease;
+  perspective: 1000px;
 }
 
-.portfolio-card:hover img {
+.card-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(110, 69, 226, 0.9), rgba(255, 107, 107, 0.9));
+  color: var(--light-text);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.portfolio-item:hover .card-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.portfolio-item:hover .card-front img {
   transform: scale(1.1);
 }
 
-.portfolio-card h3 {
-  padding: 10px;
-  background-color: #ef7516;
+.card-overlay h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.card-overlay p {
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.view-button {
+  background: transparent;
+  border: 2px solid var(--light-text);
+  color: var(--light-text);
+  padding: 10px 30px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.view-button:hover {
+  background: var(--light-text);
+  color: var(--primary-accent);
+}
+
+@media (max-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+  }
+  
+  .card-inner {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .portfolio-section {
+    padding: 50px 15px;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+/* Image Modal Styles */
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  animation: modalOpen 0.3s ease-out;
+}
+
+.modal-content img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.close-button {
+  position: absolute;
+  top: -15px;
+  right: -15px;
   color: white;
+  font-size: 2.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  background: var(--primary-accent);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.close-button:hover {
+  transform: scale(1.1);
+}
+
+@keyframes modalOpen {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }

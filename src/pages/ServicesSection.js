@@ -1,115 +1,72 @@
 import React from "react";
+import { motion } from "framer-motion";
+import {
+  FiGlobe, FiSmartphone, FiInstagram, FiFile,
+  FiImage, FiBriefcase, FiCamera, FiVideo, FiEdit
+} from "react-icons/fi";
 import "../styles/ServicesSection.css";
 
 const ServicesSection = () => {
+  const services = [
+    { icon: <FiGlobe />, title: "Web Development", description: "Professional website development with modern tech stack..." },
+    { icon: <FiSmartphone />, title: "Mobile App Development", description: "Cross-platform mobile applications for iOS and Android..." },
+    { icon: <FiInstagram />, title: "Social Media Posts", description: "Engaging social media content for maximum brand visibility..." },
+    { icon: <FiFile />, title: "Flyers Design", description: "Eye-catching flyers for events and promotions..." },
+    { icon: <FiImage />, title: "Posters Design", description: "High-impact poster designs for effective communication..." },
+    { icon: <FiBriefcase />, title: "Brand Identity", description: "Complete branding solutions from logo to style guides..." },
+    { icon: <FiCamera />, title: "Logo Design", description: "Unique and memorable logo designs for your brand..." },
+    { icon: <FiVideo />, title: "Video Editing", description: "Professional video editing and post-production services..." },
+    { icon: <FiEdit />, title: "Photo Editing", description: "High-quality photo retouching and manipulation..." }
+  ];
+
   const handleRequestService = () => {
-    document.getElementById("request").scrollIntoView({ behavior: "smooth" });
+    document.getElementById("request")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section id="services" className="services-section py-5">
+    <section id="services" className="services-section">
       <div className="container">
-        <h2 className="text-center mb-5">Find Popular Services</h2>
-        <div className="row">
-          <div className="col-md-4 mb-4">
-            <div className="service-card card">
-              <div className="card-body">
-                <h3 className="card-title">Web Development</h3>
-                <p className="card-text">
-                  Bring your business to life online with stunning, responsive, and user-friendly websites that not only captivate visitors but also drive engagement and sales. Our web development service ensures seamless performance and attractive designs tailored to meet your business needs.
-                </p>
-                <button className="btn btn-primary" onClick={handleRequestService}>Request Service</button>
+        <motion.h2
+          className="section-title"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          Our Premium Services
+        </motion.h2>
+
+        <div className="services-grid">
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              className="service-card"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: index * 0.1, duration: 0.3 }}
+              whileHover={{ y: -10 }}
+            >
+              <div className="card-inner">
+                <div className="card-content">
+                  <div className="service-icon">{service.icon}</div>
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
+                </div>
+
+                <div className="card-footer">
+                  <motion.button 
+                    className="service-btn"
+                    onClick={handleRequestService}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Request Service
+                    <span className="btn-arrow">→</span>
+                  </motion.button>
+                </div>
               </div>
-            </div>
-          </div>
-          <div className="col-md-4 mb-4">
-            <div className="service-card card">
-              <div className="card-body">
-                <h3 className="card-title">Mobile App Development</h3>
-                <p className="card-text">
-                  Transform your ideas into reality with cutting-edge mobile apps designed for both iOS and Android. From concept to deployment, we create sleek, fast, and intuitive applications that provide the ultimate user experience, helping you stay ahead in the digital world.
-                </p>
-                <button className="btn btn-primary" onClick={handleRequestService}>Request Service</button>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-4 mb-4">
-            <div className="service-card card">
-              <div className="card-body">
-                <h3 className="card-title">Social Media Post</h3>
-                <p className="card-text">
-                  Boost your online presence with eye-catching and engaging social media posts crafted to captivate your audience. Stand out on platforms like Instagram, Facebook, and Twitter with custom graphics and compelling content designed to enhance visibility and increase follower engagement.
-                </p>
-                <button className="btn btn-primary" onClick={handleRequestService}>Request Service</button>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-4 mb-4">
-            <div className="service-card card">
-              <div className="card-body">
-                <h3 className="card-title">Flyers</h3>
-                <p className="card-text">
-                  Make a lasting impression with high-quality, professionally designed flyers that highlight your events or promotions. Whether for personal gatherings or corporate events, our flyer designs ensure your message is clear, attractive, and impactful.
-                </p>
-                <button className="btn btn-primary" onClick={handleRequestService}>Request Service</button>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-4 mb-4">
-            <div className="service-card card">
-              <div className="card-body">
-                <h3 className="card-title">Posters</h3>
-                <p className="card-text">
-                  Capture attention and generate buzz with vibrant, high-resolution posters that effectively promote your products, services, or events. Our design experts ensure that each poster is visually stunning and aligned with your brand identity to maximize outreach and engagement.
-                </p>
-                <button className="btn btn-primary" onClick={handleRequestService}>Request Service</button>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-4 mb-4">
-            <div className="service-card card">
-              <div className="card-body">
-                <h3 className="card-title">Brand Identity</h3>
-                <p className="card-text">
-                  Define and elevate your brand with a comprehensive identity package. From choosing the right color palette to crafting logos and typography, we help establish a cohesive and memorable brand identity that resonates with your audience and differentiates you from the competition.
-                </p>
-                <button className="btn btn-primary" onClick={handleRequestService}>Request Service</button>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-4 mb-4">
-            <div className="service-card card">
-              <div className="card-body">
-                <h3 className="card-title">Logo Design</h3>
-                <p className="card-text">
-                  Stand out from the crowd with a unique, professionally designed logo that reflects your brand's values and mission. Our custom logo designs are crafted to leave a lasting impression and create strong visual associations with your business.
-                </p>
-                <button className="btn btn-primary" onClick={handleRequestService}>Request Service</button>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-4 mb-4">
-            <div className="service-card card">
-              <div className="card-body">
-                <h3 className="card-title">Video Editing</h3>
-                <p className="card-text">
-                  Our video editing service transforms your raw footage into compelling visual stories that captivate your audience. Whether you're looking to create promotional videos, social media content, corporate presentations, or personal projects, our skilled editors bring your vision to life with precision and creativity.
-                </p>
-                <button className="btn btn-primary" onClick={handleRequestService}>Request Service</button>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-4 mb-4">
-            <div className="service-card card">
-              <div className="card-body">
-                <h3 className="card-title">Photo Editing</h3>
-                <p className="card-text">
-                  Our photo editing service brings your images to life with professional enhancements that highlight their true potential. Whether you need high-quality retouching for portraits, product photography, or creative compositions, we deliver results that stand out.
-                </p>
-                <button className="btn btn-primary" onClick={handleRequestService}>Request Service</button>
-              </div>
-            </div>
-          </div>
+              <div className="card-glow"></div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

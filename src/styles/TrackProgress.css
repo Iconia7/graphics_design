@@ -1,42 +1,179 @@
-/* src/pages/TrackProgress.css */
-.track-progress {
-    padding: 60px 20px;
-    text-align: center;
+/* TrackProgress.css */
+.track-section {
+  padding: 8rem 2rem;
+  background: linear-gradient(45deg, #f1f8e9 0%, #fff3e0 100%);
+  min-height: 100vh;
+}
+
+.section-title {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  background: linear-gradient(90deg, #4CAF50, #FF9800);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.track-card {
+  background: rgba(255, 255, 255, 0.95);
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.track-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header-icon {
+  font-size: 3rem;
+  color: #4CAF50;
+  margin-bottom: 1rem;
+}
+
+.track-header h3 {
+  font-size: 1.8rem;
+  color: #2E7D32;
+  margin-bottom: 0.5rem;
+}
+
+.track-header p {
+  color: #666;
+}
+
+.input-group {
+  position: relative;
+  margin: 2rem 0;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #4CAF50;
+  z-index: 1;
+}
+
+input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+.gradient-btn {
+  background: linear-gradient(135deg, #4CAF50, #FF9800);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.gradient-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.error-message {
+  background: #ffebee;
+  color: #c62828;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.progress-container {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+}
+
+.status-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.status-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.project-details {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.detail-item span {
+  color: #666;
+}
+
+.detail-item strong {
+  color: #2E7D32;
+}
+
+.progress-stages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.stage {
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.stage.active {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .track-section {
+    padding: 5rem 1rem;
   }
-  
-  .track-progress h2 {
-    margin-bottom: 30px;
-    font-size: 2.5rem;
+
+  .section-title {
+    font-size: 2.2rem;
   }
-  
-  .track-form {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
+
+  .track-card {
+    padding: 2rem;
   }
-  
-  .track-form input {
-    width: 300px;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
+
+  .progress-stages {
+    grid-template-columns: 1fr;
   }
-  
-  .track-form button {
-    padding: 10px 20px;
-    background-color: #ef7516;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-  
-  .progress-result {
-    margin-top: 20px;
-    font-size: 1.2rem;
-    color: #070707;
-  }
-  
+}

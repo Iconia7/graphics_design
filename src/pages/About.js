@@ -1,62 +1,102 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { FiAward, FiUsers, FiBriefcase } from "react-icons/fi";
 import "../styles/About.css";
 
 const About = () => {
+  const stats = [
+    { icon: <FiAward />, value: "1K+", label: "Projects Delivered" },
+    { icon: <FiUsers />, value: "1K+", label: "Satisfied Clients" },
+    { icon: <FiBriefcase />, value: "3+", label: "Years Experience" },
+  ];
+
   return (
-    <div className="main-content">
-      <section className="about-page">
-        <div className="container">
-          <h2>About Us</h2>
-          <p>
-            Welcome to Newton Designs, where creativity meets innovation. Since our inception, <br />
-            we’ve been driven by a singular mission: to empower businesses and individuals <br />
-            with tailored digital solutions that inspire, engage, and deliver results.<br />
-          </p>
-          <p>
-            At Newton Designs, we specialize in a diverse range of services, including cutting-edge<br />
-            web design, dynamic mobile app development, and impactful branding strategies.<br /> 
-            Whether you're a budding startup looking to establish a digital presence or <br />
-            an established enterprise aiming to reimagine your brand, our team of <br />
-            dedicated experts is here to bring your vision to life.<br />
-          </p>
-          <p>
-            What sets us apart is our unwavering commitment to excellence and attention to detail. <br />
-            Every project we undertake is infused with our core values of creativity, integrity,<br /> 
-            and customer-centricity. We don’t just deliver solutions—we build lasting <br />
-            relationships with our clients, ensuring that your success is our success.<br />
-          </p>
-          <div className="about-stats">
-            <div className="stat">
-              <h3>1K+</h3>
-              <p>Projects Delivered</p>
+    <section className="about-section">
+      <div className="container">
+        <motion.div 
+          className="about-grid"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          {/* Left Column */}
+          <motion.div 
+            className="about-content"
+            initial={{ x: -50 }}
+            animate={{ x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <motion.h2 
+              className="section-title"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+            >
+              Crafting Digital<br />Excellence
+            </motion.h2>
+
+            <motion.div 
+              className="about-text"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+            >
+              <p className="lead">
+                At Newton Designs, we blend creativity with technical expertise to deliver 
+                transformative digital solutions. Founded in Thika, Kenya, we've grown into 
+                a trusted partner for businesses worldwide.
+              </p>
+
+              <div className="stats-grid">
+                {stats.map((stat, index) => (
+                  <motion.div 
+                    key={index}
+                    className="stat-card"
+                    whileHover={{ y: -5 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6 + index * 0.1 }}
+                  >
+                    <div className="stat-icon">{stat.icon}</div>
+                    <h3>{stat.value}</h3>
+                    <p>{stat.label}</p>
+                  </motion.div>
+                ))}
+              </div>
+
+              <motion.address 
+                className="contact-info"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.8 }}
+              >
+                <h4>Our Headquarters</h4>
+                <p>Landless, Thika, Kenya</p>
+                <p>📞 +254 115 332 870</p>
+                <p>✉️ mwanginewton239@gmail.com</p>
+              </motion.address>
+            </motion.div>
+          </motion.div>
+
+          {/* Right Column */}
+          <motion.div 
+            className="about-image"
+            initial={{ x: 50 }}
+            animate={{ x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="image-wrapper">
+              <div className="gradient-overlay" />
+              <img 
+                src="https://cdn-icons-png.flaticon.com/512/1995/1995463.png" 
+                alt="Creative team" 
+                className="team-illustration"
+              />
             </div>
-            <div className="stat">
-              <h3>3+</h3>
-              <p>Years of Experience</p>
-            </div>
-            <div className="stat">
-              <h3>1K+</h3>
-              <p>Satisfied Clients</p>
-            </div>
-          </div>
-          <p>
-            Join us on this journey of innovation and creativity. Let Newton Designs transform your ideas into <br />
-            digital masterpieces that resonate with your audience and drive meaningful results.<br />
-          </p>
-          <p>
-            Visit us at our office or get in touch to start your next project. <br />
-            We are located at:
-          </p>
-          <address>
-            <strong>Newton Designs</strong><br />
-            Landless<br />
-            THIKA, Kenya<br />
-            Phone: +254 115 332 870<br />
-            Email: mwanginewton239@gmail.com
-          </address>
-        </div>
-      </section>
-    </div>
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
   );
 };
 

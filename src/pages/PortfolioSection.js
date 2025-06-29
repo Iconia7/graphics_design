@@ -6,6 +6,12 @@ import Designs from "../assets/images/Designs.jpg";
 import Hassan from "../assets/images/Hassan.jpg";
 import Ladies from "../assets/images/Ladies.jpg";
 import Party from "../assets/images/Party.jpg";
+import Debate from "../assets/images/Debate.jpg";
+import Partnership from "../assets/images/DRICE.jpg";
+import Health from "../assets/images/health.jpg";
+import Partnerships from "../assets/images/ISADU.jpg";
+import Holiday from "../assets/images/June1.jpg";
+import Movie from "../assets/images/Movie.jpg";
 
 const PortfolioSection = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -42,7 +48,13 @@ const PortfolioSection = () => {
             { img: Designs, title: "Advertisement Poster", category: "Advertising" },
             { img: Ladies, title: "Birthday Party Flyer", category: "Events" },
             { img: Hassan, title: "Official Flyer", category: "Corporate" },
-            { img: Party, title: "Party Poster", category: "Events" }
+            { img: Party, title: "Party Poster", category: "Events" },
+            { img: Debate, title: "Debate Poster", category: "Competition" },
+            { img: Partnership, title: "Partnership Poster", category: "Events" },
+            { img: Health, title: "Health Poster", category: "Health" },
+            { img: Partnerships, title: "Partnership Poster", category: "Events" },
+            { img: Holiday, title: "Holiday Poster", category: "Events" },
+            { img: Movie, title: "Movie Poster", category: "Events" }
           ].map((project, index) => (
             <div className={`portfolio-item card-${index + 1}`} key={index}>
               <div className="card-inner">
